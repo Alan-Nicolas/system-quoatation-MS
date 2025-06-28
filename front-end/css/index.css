@@ -43,6 +43,7 @@ h1 {
     height: 88px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
 }
 
@@ -55,6 +56,26 @@ h2 {
     letter-spacing: 5px;
     width: 500px;
     margin-left: 350px;
+}
+
+#orcamento button {
+    width: 107px;
+    height: 45px;
+    margin-right: 300px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #0B3E8B, #090909);
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+#orcamento a {
+    text-decoration: none;
+    color: white;
 }
 
 main {
