@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #E2E2E2;
+    display: flex;
+    justify-content: center;
+
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 88px;
+    background: linear-gradient(to right, #0B3E8B, #090909);
+    z-index: 1;
+    /* garante que fique acima de outros elementos */
+
+}
+
+h1 {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: white;
+    letter-spacing: 5px;
+    width: 500px;
+    margin-left: 300px;
+}
+
+#orcamento {
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    top: 88px;
+    width: 100%;
+    height: 88px;
+    display: flex;
+    align-items: center;
+
+}
+
+h2 {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 30px;
+    color: #8F8F8F;
+    letter-spacing: 5px;
+    width: 500px;
+    margin-left: 350px;
+}
+
+main {
+
+    background-color: white;
+    width: 950px;
+    height: 450px;
+    margin-top: 300px;
+
+}
+
+form {
+    display: flex;
+    align-items: stretch;
+    /* garante que a linha cresça junto */
+    height: 450px;
+}
+
+#container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 70vh;
+    height: 450px;
+}
+
+.linha {
+    margin-top: 80px;
+    width: 2px;
+    height: 350px;
+    background-color: #E2E2E2;
+    
+}
+
+#container2 {
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100vh;
+    height: 450px;
+}
+
+#formClient {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    margin-left: 50px;
+    gap: 15px
+}
+
+label {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 15px;
+    color: #8F8F8F;
+}
+
+
+input {
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #E2E2E2;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    /* opcional — cuidado para não sumir com a borda de vez */
+}
+
+#formService {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 20px;
+    gap: 15px
+}
+
+textarea {
+    height: 100px;
+    background-color: #E2E2E2;
+    border-radius: 5px;
+    border: none;
+     resize: none; /* Impede redimensionamento */
+    outline: none;
+}
+
+#container2 button {
+    position: fixed;
+    width: 107px;
+    height: 45px;
+    margin-left: 400px;
+    margin-top: 220px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #0B3E8B, #090909);
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+#container2 button:hover {
+      box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+
+    transform: translateY(-2px);
+}

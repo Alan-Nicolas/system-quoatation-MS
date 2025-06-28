@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS SERVIÇOS - ORÇAMENTO</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Condensed+One&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>MS SERVIÇOS</h1>
+    </header>
+    <div id="orcamento">
+        <h2>ORÇAMENTO</h2>
+    </div>
+
+    <main>
+        <form id="quoatation-form">
+            <div id="container">
+                <div id="formClient">
+                    <label for="name-client">NOME DO CLIENTE</label>
+                    <input type="text" name="nome" id="name-client" placeholder="Digite o nome" required>
+
+                    <label for="cpf-client">CPF DO CLIENTE</label>
+                    <input type="text" name="cpf" id="cpf-client" placeholder="Digite o CPF" required>
+                </div>
+
+            </div>
+            
+            <div class="linha"></div>
+            
+            <div id="container2">
+                <div id="formService">
+                    <label for="type-service">TIPO DE SERVIÇO</label>
+                    <input type="text" name="type-service" id="type-service" placeholder="Ex: Consultoria" required>
+
+                    <label for="value-service">VALOR</label>
+                    <input type="number" name="value-service" id="value-service" 
+                        placeholder="Digite o valor" required>
+
+                    <label for="description-service">DESCRIÇÃO</label>
+                    <textarea name="description" id="description-service" placeholder="Descreva o serviço" ></textarea>
+
+                    
+                </div>
+                <button type="submit">CONFIRMAR</button>
+
+            </div>
+
+
+
+            <div id="resposta"></div>
+
+
+        </form>
+
+    </main>
+    <script src="/script/script.js"></script>
+</body>
+
+</html>
