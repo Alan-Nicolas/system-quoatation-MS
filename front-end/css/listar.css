@@ -1,68 +1,30 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #E2E2E2;
-    display: flex;
-    justify-content: center;
+#container-orcamentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  padding: 16px;
+  background-color: white;
+  width: 950px;
+  margin-top: 200px;
 
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 88px;
-    background: linear-gradient(to right, #0B3E8B, #090909);
-    z-index: 1;
-    /* garante que fique acima de outros elementos */
 
+.orcamento-card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-h1 {
-    font-family: "Fira Sans", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    color: white;
-    letter-spacing: 5px;
-    width: 500px;
-    margin-left: 300px;
+.orcamento-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
 }
 
-#orcamento {
-    position: fixed;
-    z-index: 2;
-    background-color: white;
-    top: 88px;
-    width: 100%;
-    height: 88px;
-    display: flex;
-    align-items: center;
-
+.orcamento-card p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #555;
 }
-
-h2 {
-    font-family: "Fira Sans", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    font-size: 30px;
-    color: #8F8F8F;
-    letter-spacing: 5px;
-    width: 500px;
-    margin-left: 350px;
-}
-
-main {
-
-    background-color: white;
-    width: 950px;
-    height: 450px;
-    margin-top: 300px;
-
-}
-

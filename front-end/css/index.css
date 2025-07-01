@@ -71,15 +71,12 @@ h2 {
     font-size: 13px;
     letter-spacing: 2px;
     cursor: pointer;
-}
-
-#orcamento a {
-    text-decoration: none;
     color: white;
 }
 
-main {
 
+
+#container-quaotation {
     background-color: white;
     width: 950px;
     height: 450px;

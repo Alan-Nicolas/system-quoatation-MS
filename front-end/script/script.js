@@ -1,3 +1,4 @@
+
 document.getElementById("quoatation-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -16,17 +17,20 @@ document.getElementById("quoatation-form").addEventListener("submit", function (
     })
         .then(response => {
             if (response.ok) {
-                alert("cadastro feito");
-                
+                alert("Orçamento feito com sucesso!");
+
                 document.getElementById("name-client").value = "";
                 document.getElementById("cpf-client").value = "";
                 document.getElementById("type-service").value = "";
                 document.getElementById("value-service").value = "";
                 document.getElementById("description-service").value = "";
-            } else {
-                alert("erro no cadastro")
+
             }
         })
+        .catch(error => {
+            console.error("Erro na requisição:", error);
+            alert("Erro inesperado. Verifique sua conexão ou tente novamente.");
+        });
 
 
 
