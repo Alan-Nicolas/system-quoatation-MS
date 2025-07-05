@@ -31,11 +31,53 @@ async function listarOrcamentos() {
             <p><strong>Serviço:</strong> ${orcamento.typeService}</p>
             <p><strong>Valor:</strong> R$ ${orcamento.valueService.toFixed(2)}</p>
             <p><strong>Descrição:</strong> ${orcamento.description}</p>
-
+            <button class="open-modal">Deletar</button> 
+            <dialog>
+            <h1>Confirmar exclusão?</h1>
+                <div class="botoes-modal">
+                    <button class="confirmar">Sim</button>
+                    <button class="cancelar">Cancelar</button>
+                </div>
+            </dialog>
             `;
+
+        const botaoAbrir = card.querySelector(".open-modal")
+        const modal = card.querySelector("dialog")
+        const botaoConfirmar = card.querySelector(".confirmar")
+        const botaoCancelar = card.querySelector(".cancelar")
+
+        botaoAbrir.addEventListener("click", () => modal.showModal())
+        botaoCancelar.addEventListener("click", () => modal.close())
+        botaoConfirmar.addEventListener("click", () =>
+            deletarCards(orcamento.id, card)
+        )
         container.appendChild(card)
 
     });
+
+    async function deletarCards(id, elementoCard) {
+        const confirmar = confirm("deseja deletar?")
+        if (!confirmar) return
+        try {
+            const resp = await fetch(`http://localhost:8080/orcamento/${id}`, {
+                method: "DELETE",
+            });
+
+            if (resp.ok) {
+                alert("apagado com sucesso")
+                elementoCard.remove();
+            } else {
+                alert("erro ao excluir orçamento")
+            }
+        } catch (error) {
+            console.error("erro");
+        }
+
+
+    }
+
+
+
 
 
 
