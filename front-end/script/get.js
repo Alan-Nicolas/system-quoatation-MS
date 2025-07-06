@@ -33,7 +33,7 @@ async function listarOrcamentos() {
             <p><strong>Serviço:</strong> ${orcamento.typeService}</p>
             <p><strong>Valor:</strong> R$ ${orcamento.valueService.toFixed(2)}</p>
             <p><strong>Descrição:</strong> ${orcamento.description}</p>
-            <button class="open-modal">Deletar</button> 
+            <button id="buttonCard" class="open-modal">Deletar</button> 
             <dialog id="dialog-delete">
             <h1 class="dialog-title">Confirmar exclusão?</h1>
                 <div class="botoes-modal">
@@ -41,6 +41,7 @@ async function listarOrcamentos() {
                     <button class="cancelar">Cancelar</button>
                 </div>
             </dialog>
+            <button id="buttonCard"  class="open-modal-put">Atualizar</button>
             `;
 
         const botaoAbrir = card.querySelector(".open-modal")
