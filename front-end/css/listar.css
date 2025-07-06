@@ -4,22 +4,24 @@
   gap: 20px;
   padding: 16px;
   background-color: white;
-  width: 950px;
+  width: 1000px;
   margin-top: 200px;
 
 }
 
 
 .orcamento-card {
+  position: relative;
   background: white;
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-   font-family: "Fira Sans", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    font-size: 13px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 13px;
+ 
 }
 
 .orcamento-card h3 {
@@ -33,44 +35,43 @@
   color: #555;
 }
 
-.open-modal  {
+.open-modal {
   position: relative;
-  left: 80%;
-  bottom: 110px;
+
   width: 70px;
-  height: 40px;
+  height: 30px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   background-color: #E2E2E2;
-   font-family: "Fira Sans", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    font-size: 13px;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 13px;
 }
 
-dialog {
+#dialog-delete {
   border: none;
   border-radius: 8px;
   padding: 20px 30px;
-  max-width: 400px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-family: Arial, sans-serif;
   animation: fadeIn 0.3s ease-in-out;
 }
 
-dialog::backdrop {
+#dialog-delete::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
 
-dialog h1 {
-  margin-bottom: 20px;
+#dialog-delete h1 {
+  margin: 0;
+  padding: 0;
   font-size: 22px;
   color: #333;
 }
 
-dialog button {
+#dialog-delete button {
   padding: 10px 20px;
   margin: 10px 10px 0 10px;
   border: none;
@@ -103,6 +104,7 @@ button.cancelar:hover {
     opacity: 0;
     transform: scale(0.85);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

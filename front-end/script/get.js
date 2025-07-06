@@ -1,3 +1,5 @@
+const modalConfirm = document.querySelector("#modal-container")
+
 async function listarOrcamentos() {
 
 
@@ -32,8 +34,8 @@ async function listarOrcamentos() {
             <p><strong>Valor:</strong> R$ ${orcamento.valueService.toFixed(2)}</p>
             <p><strong>Descrição:</strong> ${orcamento.description}</p>
             <button class="open-modal">Deletar</button> 
-            <dialog>
-            <h1>Confirmar exclusão?</h1>
+            <dialog id="dialog-delete">
+            <h1 class="dialog-title">Confirmar exclusão?</h1>
                 <div class="botoes-modal">
                     <button class="confirmar">Sim</button>
                     <button class="cancelar">Cancelar</button>
@@ -48,24 +50,44 @@ async function listarOrcamentos() {
 
         botaoAbrir.addEventListener("click", () => modal.showModal())
         botaoCancelar.addEventListener("click", () => modal.close())
-        botaoConfirmar.addEventListener("click", () =>
+        botaoConfirmar.addEventListener("click", () => {
             deletarCards(orcamento.id, card)
+            modal.close()
+
+        }
         )
         container.appendChild(card)
 
     });
 
+
+
     async function deletarCards(id, elementoCard) {
-        const confirmar = confirm("deseja deletar?")
-        if (!confirmar) return
+
         try {
             const resp = await fetch(`http://localhost:8080/orcamento/${id}`, {
                 method: "DELETE",
             });
 
             if (resp.ok) {
-                alert("apagado com sucesso")
                 elementoCard.remove();
+                modalConfirm.showModal()
+
+                setTimeout(() => {
+                    modalConfirm.close()
+                }, 2000)
+
+                const aviso = document.createElement("p");
+                aviso.textContent = "Nenhum orçamento cadastrado até o momento.";
+                aviso.style.color = "gray";
+                aviso.style.fontStyle = "italic";
+                aviso.style.textAlign = "center"
+
+                setTimeout(() => {
+                    container.appendChild(aviso);
+                }, 2000)
+                
+                return;
             } else {
                 alert("erro ao excluir orçamento")
             }

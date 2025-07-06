@@ -1,4 +1,4 @@
-
+const modal = document.getElementById("modal-container")
 document.getElementById("quoatation-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -17,7 +17,14 @@ document.getElementById("quoatation-form").addEventListener("submit", function (
     })
         .then(response => {
             if (response.ok) {
-                alert("Orçamento feito com sucesso!");
+        
+                modal.showModal()
+                
+                setTimeout(() => {
+                    modal.close()
+                }, 1000)
+                //aqui fica as ações do modal
+
 
                 document.getElementById("name-client").value = "";
                 document.getElementById("cpf-client").value = "";
