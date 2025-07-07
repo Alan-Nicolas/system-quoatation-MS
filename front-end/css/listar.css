@@ -114,6 +114,8 @@ button.cancelar:hover {
   border: none;
   width: 900px;
   height: 600px;
+    animation: fadeIn 0.3s ease-in-out;
+
 }
 
 
@@ -127,13 +129,14 @@ button.cancelar:hover {
   top: 60px;
   left: 40px;
   position: relative;
+  
 }
 
 #button-close {
    position: fixed;
     width: 107px;
     height: 45px;
-    margin-left: 400px;
+    margin-left: 760px;
     margin-bottom: 400px;
     border: none;
     border-radius: 8px;
@@ -146,4 +149,24 @@ button.cancelar:hover {
     letter-spacing: 2px;
     cursor: pointer;
  }
+
+ #modal-container-edit {
+    border: none;
+  border-radius: 8px;
+  padding: 20px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+#modal-container-edit p {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: #8F8F8F;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
 

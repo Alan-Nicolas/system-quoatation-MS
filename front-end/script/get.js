@@ -1,4 +1,11 @@
+//açoes do modal do formulario de atualização do orçamento
 const modalConfirm = document.querySelector("#modal-container")
+const modalPut = document.getElementById("modal-form-cadastrar")
+const btnClosePut = document.getElementById("button-close")
+
+//abre o modal de confirmação de orcamento editado
+const modalEditadoSucss = document.getElementById("modal-container-edit")
+
 
 async function listarOrcamentos() {
 
@@ -60,8 +67,8 @@ async function listarOrcamentos() {
         container.appendChild(card)
 
         const btnAbrirPut = card.querySelector(".open-modal-put")
-        const modalPut = document.getElementById("modal-form-cadastrar")
-        const btnClosePut = document.getElementById("button-close")
+
+
 
 
         btnAbrirPut.addEventListener("click", () => {
@@ -74,10 +81,10 @@ async function listarOrcamentos() {
             document.getElementById("description-service").value = orcamento.description
 
             localStorage.setItem("orcamentoId", orcamento.id);
-            
 
-        } )
-            
+
+        })
+
         btnClosePut.addEventListener("click", () => modalPut.close())
 
 
@@ -92,7 +99,7 @@ async function listarOrcamentos() {
                 method: "DELETE",
             });
 
-            
+
 
             if (resp.ok) {
                 elementoCard.remove();
@@ -111,12 +118,13 @@ async function listarOrcamentos() {
     }
 }
 
+
 document.getElementById("formUpdate").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const id = localStorage.getItem("orcamentoId")
 
-    if(!id) {
+    if (!id) {
         alert("orçamento nao encontrado")
         return
     }
@@ -130,7 +138,7 @@ document.getElementById("formUpdate").addEventListener("submit", async function 
     }
 
     try {
-        
+
         const resp = await fetch(`http://localhost:8080/orcamento/${id}`, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
@@ -138,7 +146,16 @@ document.getElementById("formUpdate").addEventListener("submit", async function 
         })
 
         if (resp.ok) {
-            alert("dados atualizados")
+
+            modalPut.close() 
+
+            modalEditadoSucss.showModal()
+
+            setTimeout(() => {
+                modalEditadoSucss.close(),
+                window.location.reload();
+            }, 2000)
+            
         } else {
             alert("erro ao atualizar dados")
         }
