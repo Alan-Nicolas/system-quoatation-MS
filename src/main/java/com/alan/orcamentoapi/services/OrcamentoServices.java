@@ -37,4 +37,18 @@ public class OrcamentoServices {
     public void delete (long id) {
         repository.delete(buscarPorId(id));
     }
+
+    public Orcamento atualizarOrcamento (Long id, OrcamentoPutRequest orcamentoPutRequest) {
+        Orcamento orcamentoSaved = buscarPorId(id);
+
+        Orcamento orcamentoUptade = Orcamento.builder()
+                .id(orcamentoSaved.getId())
+                .nameClient(orcamentoPutRequest.nameClient())
+                .cpfClient(orcamentoPutRequest.cpfClient())
+                .typeService(orcamentoPutRequest.typeService())
+                .valueService(orcamentoPutRequest.valueService())
+                .description(orcamentoPutRequest.description())
+                .build();
+        return repository.save(orcamentoUptade);
+    }
 }
