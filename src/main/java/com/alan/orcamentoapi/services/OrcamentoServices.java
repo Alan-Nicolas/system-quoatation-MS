@@ -3,6 +3,7 @@ package com.alan.orcamentoapi.services;
 import com.alan.orcamentoapi.entity.Orcamento;
 import com.alan.orcamentoapi.repository.OrcamentoRepository;
 import com.alan.orcamentoapi.request.OrcamentoPostRequest;
+import com.alan.orcamentoapi.request.OrcamentoPutRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,19 @@ public class OrcamentoServices {
 
     public void delete (long id) {
         repository.delete(buscarPorId(id));
+    }
+
+    public Orcamento atualizarOrcamento (Long id, OrcamentoPutRequest orcamentoPutRequest) {
+        Orcamento orcamentoSaved = buscarPorId(id);
+
+        Orcamento orcamentoUptade = Orcamento.builder()
+                .id(orcamentoSaved.getId())
+                .nameClient(orcamentoPutRequest.nameClient())
+                .cpfClient(orcamentoPutRequest.cpfClient())
+                .typeService(orcamentoPutRequest.typeService())
+                .valueService(orcamentoPutRequest.valueService())
+                .description(orcamentoPutRequest.description())
+                .build();
+        return repository.save(orcamentoUptade);
     }
 }
