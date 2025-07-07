@@ -59,6 +59,14 @@ async function listarOrcamentos() {
         )
         container.appendChild(card)
 
+        const btnAbrirPut = document.querySelector(".open-modal-put")
+        const modalPut = document.getElementById("modal-form-cadastrar")
+        const btnClosePut = document.getElementById("button-close")
+
+        btnAbrirPut.addEventListener("click", () => modalPut.showModal())
+        btnClosePut.addEventListener("click", () => modalPut.close())
+
+
     });
 
 
@@ -69,6 +77,8 @@ async function listarOrcamentos() {
             const resp = await fetch(`http://localhost:8080/orcamento/${id}`, {
                 method: "DELETE",
             });
+
+            
 
             if (resp.ok) {
                 elementoCard.remove();
@@ -87,7 +97,7 @@ async function listarOrcamentos() {
                 setTimeout(() => {
                     container.appendChild(aviso);
                 }, 2000)
-                
+
                 return;
             } else {
                 alert("erro ao excluir orçamento")
@@ -95,19 +105,7 @@ async function listarOrcamentos() {
         } catch (error) {
             console.error("erro");
         }
-
-
     }
-
-
-
-
-
-
-
-
-
-
 }
 
 document.addEventListener("DOMContentLoaded", listarOrcamentos);
