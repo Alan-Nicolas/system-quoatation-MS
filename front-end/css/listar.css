@@ -109,3 +109,41 @@ button.cancelar:hover {
     transform: scale(1);
   }
 }
+
+#modal-form-cadastrar {
+  border: none;
+  width: 900px;
+  height: 600px;
+}
+
+
+#title-atualizar {
+  width: 300px;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 25px;
+  color: #8F8F8F;
+  top: 60px;
+  left: 40px;
+  position: relative;
+}
+
+#button-close {
+   position: fixed;
+    width: 107px;
+    height: 45px;
+    margin-left: 400px;
+    margin-bottom: 400px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #b90d0d, #090909);
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+ }
+
