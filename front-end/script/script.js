@@ -1,4 +1,5 @@
 const modal = document.getElementById("modal-container")
+
 document.getElementById("quoatation-form").addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -10,21 +11,15 @@ document.getElementById("quoatation-form").addEventListener("submit", async func
         description: document.getElementById('description-service').value
     };
 
-    const resp = await fetch('http://localhost:8080/orcamento', {
-        method: 'POST',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(dados)
-    })
-
-
     try {
-        const data = await resp.json()
-        localStorage.setItem("orcamentoId", data.id);
+        const resp = await fetch('http://localhost:8080/orcamento', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados)
+        })
 
         if (resp.ok) {
-
             modal.showModal()
-
             setTimeout(() => {
                 modal.close()
             }, 1000)
@@ -43,7 +38,5 @@ document.getElementById("quoatation-form").addEventListener("submit", async func
         console.error("Erro na requisição:", error);
         alert("Erro inesperado. Verifique sua conexão ou tente novamente.");
     }
-
-
 
 })
