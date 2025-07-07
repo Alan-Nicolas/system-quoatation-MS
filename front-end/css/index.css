@@ -58,7 +58,7 @@ h2 {
     margin-left: 350px;
 }
 
-#orcamento button {
+#button-container {
     width: 107px;
     height: 45px;
     margin-right: 300px;
@@ -167,7 +167,7 @@ textarea {
     outline: none;
 }
 
-#container2 button {
+#button-confirm {
     position: fixed;
     width: 107px;
     height: 45px;

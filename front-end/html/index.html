@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -18,8 +18,8 @@
     </header>
     <div id="orcamento">
         <h2>ORÇAMENTO</h2>
-        
-        <a href="/front-end/html/listar.html"><Button>LISTAR</Button></a>
+
+        <a href="/front-end/html/listar.html"><Button id="button-container">LISTAR</Button></a>
     </div>
 
     <main id="container-quaotation">
@@ -34,26 +34,25 @@
                 </div>
 
             </div>
-            
+
             <div class="linha"></div>
-            
+
             <div id="container2">
                 <div id="formService">
                     <label for="type-service">TIPO DE SERVIÇO</label>
                     <input type="text" name="type-service" id="type-service" placeholder="Ex: Consultoria" required>
 
                     <label for="value-service">VALOR</label>
-                    <input type="number" name="value-service" id="value-service" 
-                        placeholder="Digite o valor" required>
+                    <input type="number" name="value-service" id="value-service" placeholder="Digite o valor" required>
 
                     <label for="description-service">DESCRIÇÃO</label>
-                    <textarea name="description" id="description-service" placeholder="Descreva o serviço" ></textarea>
+                    <textarea name="description" id="description-service" placeholder="Descreva o serviço"></textarea>
 
-                    
+
                 </div>
 
-                <button type="submit">CONFIRMAR</button>
-                
+                <button type="submit" id="button-confirm">CONFIRMAR</button>
+
                 <dialog id="modal-container">
                     <p>Orçamento feito com sucesso!</p>
                 </dialog>

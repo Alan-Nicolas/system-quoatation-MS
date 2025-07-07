@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     </header>
     <div id="orcamento">
         <h2>LISTA DE ORÇAMENTOS</h2>
-        <a href="/front-end/html/index.html"><Button>CRIAR ORÇAMENTOS</Button></a>
+        <a href="/front-end/html/index.html"><Button id="button-container">CRIAR ORÇAMENTOS</Button></a>
     </div>
 
     <main id="container-orcamentos">
@@ -27,8 +27,50 @@
         <dialog id="modal-container">
             <p>Apagado com sucesso!</p>
         </dialog>
-    </main>
-    <script src="/front-end/script/get.js"></script>
+
+        <dialog id="modal-form-cadastrar">
+            
+            <h3 id="title-atualizar">Atualizar cadastro</h3>
+            <button id="button-close">SAIR</button>
+
+            <form id="formUpdate">
+                <div id="container">
+                    <div id="formClient">
+                        <label for="name-client">NOME DO CLIENTE</label>
+                        <input type="text" name="nome" id="name-client" placeholder="Digite o nome" required>
+
+                        <label for="cpf-client">CPF DO CLIENTE</label>
+                        <input type="text" name="cpf" id="cpf-client" placeholder="Digite o CPF" required>
+                    </div>
+
+                </div>
+
+                <div class="linha"></div>
+
+                <div id="container2">
+                    <div id="formService">
+                        <label for="type-service">TIPO DE SERVIÇO</label>
+                        <input type="text" name="type-service" id="type-service" placeholder="Ex: Consultoria" required>
+
+                        <label for="value-service">VALOR</label>
+                        <input type="number" name="value-service" id="value-service" placeholder="Digite o valor"
+                            required>
+
+                        <label for="description-service">DESCRIÇÃO</label>
+                        <textarea name="description" id="description-service"
+                            placeholder="Descreva o serviço"></textarea>
+                    </div>
+                    <button type="submit" id="button-confirm">CONFIRMAR</button>
+                    
+            </form>
+        </dialog>
+
+
+        <dialog id="modal-container-edit">
+            <p>Orçamento editado com sucesso</p>
+        </dialog>
+
+        <script src="/front-end/script/get.js"></script>
 </body>
 
 </html>
