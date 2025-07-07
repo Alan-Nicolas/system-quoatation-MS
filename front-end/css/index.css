@@ -189,3 +189,27 @@ textarea {
 
     transform: translateY(-2px);
 }
+
+#modal-container {
+    border: none;
+  border-radius: 8px;
+  padding: 20px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+#modal-container p {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: #8F8F8F;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+#modal-container::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}

@@ -4,18 +4,24 @@
   gap: 20px;
   padding: 16px;
   background-color: white;
-  width: 950px;
+  width: 1000px;
   margin-top: 200px;
 
 }
 
 
 .orcamento-card {
+  position: relative;
   background: white;
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 13px;
+ 
 }
 
 .orcamento-card h3 {
@@ -25,6 +31,81 @@
 
 .orcamento-card p {
   margin: 4px 0;
-  font-size: 0.95rem;
+  font-size: 15px;
   color: #555;
+}
+
+#buttonCard {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #E2E2E2;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 13px;
+}
+
+#dialog-delete {
+  border: none;
+  border-radius: 8px;
+  padding: 20px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#dialog-delete::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#dialog-delete h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  color: #333;
+}
+
+#dialog-delete button {
+  padding: 10px 20px;
+  margin: 10px 10px 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button.confirmar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.confirmar:hover {
+  background-color: #c0392b;
+}
+
+button.cancelar {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+button.cancelar:hover {
+  background-color: #95a5a6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
