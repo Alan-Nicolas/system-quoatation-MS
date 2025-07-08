@@ -49,6 +49,7 @@ async function listarOrcamentos() {
                 </div>
             </dialog>
             <button id="buttonCard"  class="open-modal-put">Atualizar</button>
+            <button id="buttonCard">Gerar</button>
             `;
 
         const botaoAbrir = card.querySelector(".open-modal")
