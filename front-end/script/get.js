@@ -9,7 +9,6 @@ const modalEditadoSucss = document.getElementById("modal-container-edit")
 
 async function listarOrcamentos() {
 
-
     const resp = await fetch("http://localhost:8080/orcamento");
     if (!resp.ok) throw new Error("Falha ao buscar orcamentos");
 
@@ -32,14 +31,16 @@ async function listarOrcamentos() {
         const card = document.createElement("div");
         card.classList.add("orcamento-card");
         if (orcamentos != null) {
-
+            //nao sei
         }
         card.innerHTML = `
+        
             <h3>${orcamento.nameClient}</h3>
             <p><strong>CPF:</strong> ${orcamento.cpfClient}</p>
             <p><strong>Serviço:</strong> ${orcamento.typeService}</p>
             <p><strong>Valor:</strong> R$ ${orcamento.valueService.toFixed(2)}</p>
             <p><strong>Descrição:</strong> ${orcamento.description}</p>
+       
             <button id="buttonCard" class="open-modal">Deletar</button> 
             <dialog id="dialog-delete">
             <h1 class="dialog-title">Confirmar exclusão?</h1>
@@ -49,7 +50,7 @@ async function listarOrcamentos() {
                 </div>
             </dialog>
             <button id="buttonCard"  class="open-modal-put">Atualizar</button>
-            <button id="buttonCard">Gerar</button>
+            <button id="buttonCard" class="generatedPDF">Gerar</button>
             `;
 
         const botaoAbrir = card.querySelector(".open-modal")
@@ -69,9 +70,6 @@ async function listarOrcamentos() {
 
         const btnAbrirPut = card.querySelector(".open-modal-put")
 
-
-
-
         btnAbrirPut.addEventListener("click", () => {
             modalPut.showModal()
 
@@ -87,6 +85,43 @@ async function listarOrcamentos() {
         })
 
         btnClosePut.addEventListener("click", () => modalPut.close())
+
+        const btnGenerated = card.querySelector(".generatedPDF")
+
+        btnGenerated.addEventListener("click", () => {
+            // TODO(Alan): Criar metodo para gerar pdf
+            // TODO(Alan): Este pdf deve gerar todas as informações do orçamento
+
+            fetch("pdf.html")
+                .then(res => res.text())
+                .then(html => {
+                    const container = document.createElement("div")
+                    container.innerHTML = html
+                    container.style.display = "none"
+                    document.body.appendChild(container)
+
+                    container.querySelector("#cliente").textContent = orcamento.nameClient
+                    container.querySelector("#cliente-cpf").textContent = orcamento.cpfClient
+                    container.querySelector("#tipo-servico").textContent = orcamento.typeService
+                    container.querySelector("#valor").textContent = orcamento.valueService.toFixed(2)
+                    container.querySelector("#descricao").textContent = orcamento.description
+
+                    const conteudo = container.querySelector("#conteudo-orcamento")
+
+                    const config = {
+                        margin: [10, 10, 10, 10],
+                        filename: "Orçamento.pdf",
+                        html2canvas: { scale: 6, userCors: true },
+                        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+                    }
+
+                    html2pdf().set(config).from(conteudo).save()
+                })
+                .catch(err => {
+                    console.error("Erro ao carregar modelo:", err);
+                });
+
+        })
 
 
     });
@@ -148,15 +183,15 @@ document.getElementById("formUpdate").addEventListener("submit", async function 
 
         if (resp.ok) {
 
-            modalPut.close() 
+            modalPut.close()
 
             modalEditadoSucss.showModal()
 
             setTimeout(() => {
                 modalEditadoSucss.close(),
-                window.location.reload();
+                    window.location.reload();
             }, 2000)
-            
+
         } else {
             alert("erro ao atualizar dados")
         }
